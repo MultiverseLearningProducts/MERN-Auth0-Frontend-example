@@ -39,6 +39,7 @@ export function Items(props) {
 
     return (
         <ul>
+            <li>Items</li>
             {items.map((item, i) => {
                 return (
                     <li 

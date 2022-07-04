@@ -27,6 +27,7 @@ app.get('/orders/:id', async (req, res) => {
     await mongodb.connect()
     const collection = mongodb.db('general_menus').collection('orders')
     const orders = await collection.find({}, {where: {userid: {$eq: req.params.id}}}).toArray()
+    console.log(orders)
     res.send(orders)
     await mongodb.close()    
 })
