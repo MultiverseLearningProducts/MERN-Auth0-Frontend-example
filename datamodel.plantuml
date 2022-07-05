@@ -1,0 +1,36 @@
+@startuml
+left to right direction
+rectangle Auth0 {
+    entity User {
+        id
+        name
+        dob
+        email
+        password
+    }
+}
+rectangle MongoDB {
+    entity Activity {
+        id
+        time
+        date
+        disc
+        instructor_id
+        title
+        location
+    }
+    entity Instructor extends User {
+    id
+    bio
+    expertIn
+    }
+    entity Booking {
+        activity_id
+        user_id
+        payment_status
+    }
+}
+Activity::instructor_id -- Instructor::id
+Booking::activity_id }-- Activity::id
+User::id --{ Booking::user_id
+@enduml
